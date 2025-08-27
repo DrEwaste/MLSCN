@@ -1,3 +1,6 @@
+clc; 
+clear; 
+close all;
 % Matlab code using random forest to rank variables from a dataset 
 % for which the first 23 columns represent independent variables 
 % and the last 13 columns represent dependent variables. 
@@ -6,11 +9,14 @@
 % Also rank the top 5 independent variables for each of the top 
 % 5 dependent variables.
 % Load the data from the Excel spreadsheet
-data = xlsread('data_new.xlsx'); 
+%data = xlsread('data_new.xlsx'); 
+clear all
+clc
+data = xlsread('Dataset2_RF.xlsx');
 
 % Define X and Y
-X = data(:, 1:23); % Independent variables
-Y = data(:, 24:end); % Dependent variables
+X = data(:, 1:16); % Independent variables
+Y = data(:, 17:end); % Dependent variables
 
 % Initialize matrices to store percentage contributions and importance
 percentContributions = zeros(size(X, 2), size(Y, 2));
@@ -61,7 +67,7 @@ end
 % Rank the dependent variables based on their mean importance
 [~, sortedDepIndices] = sort(meanImportance, 'descend');
 top5DepIndices = sortedDepIndices(1:5);
-top5DepValues = meanImportance(top5DepIndices);
+top5DepValues = meanImportance(top5DepIndices)
 
 % Create a figure to visualize the top 5 dependent variables based on their mean importance
 figure;
@@ -74,7 +80,7 @@ xtickangle(45); % Rotate x-axis labels for better readability
 saveas(gcf, 'Top5_Dependent_Variables.png');
 
 % Create a table with ranked variables and their contributions
-variableNames = strcat('X', string(1:23)); % Independent variables
+variableNames = strcat('X', string(1:16)); % Independent variables
 dependentNames = strcat('Y', string(1:size(Y, 2))); % Dependent variables
 
 % Prepare output data for the top 5 dependent variables
