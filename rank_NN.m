@@ -1,16 +1,19 @@
+clc; 
+clear; 
+close all;
 % Matlab code using Neural Network to rank variables from a dataset 
-% for which the first 23 columns represent independent variables 
-% and the last 13 columns represent dependent variables. 
+% for which the first 14 columns represent independent variables 
+% and the last 7 columns represent dependent variables. 
 % Display relative contributions in percentages in descending order 
 % and save the output as an xls file. 
 % Also rank the top 5 independent variables for each of the top 
 % 5 dependent variables.
 % Load the data from the Excel spreadsheet
-data = xlsread('data_new.xlsx'); 
+data = xlsread('Dataset6.xlsx'); 
 
 % Define X and Y
-X = data(:, 24:end); % Independent variables (last 13 columns)
-Y = data(:, 1:23); % Dependent variables (first 23 columns)
+X = data(:, 6:end); % Independent variables (last 13 columns)
+Y = data(:, 1:5); % Dependent variables (first 23 columns)
 
 % Check for and handle missing values
 if any(isnan(X(:))) || any(isnan(Y(:)))
@@ -56,7 +59,7 @@ for i = 1:length(topDepVarsIndices)
     depIdx = topDepVarsIndices(i);
     subplot(2, 3, i);
     bar(importanceResults(depIdx, :));
-    title(['Importance for Dependent Variable ', num2str(depIdx)]);
+    title(['Imp for Dep Var ', num2str(depIdx)]);
     xlabel('Independent Variables');
     ylabel('Importance');
 end
