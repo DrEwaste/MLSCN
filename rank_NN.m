@@ -1,14 +1,15 @@
-clc; 
-clear; 
-close all;
-% Matlab code using Neural Network to rank variables from a dataset 
-% for which the first 14 columns represent independent variables 
-% and the last 7 columns represent dependent variables. 
+% MATLAB code using Neural Network to rank variables from a dataset 
+% for which the first 5 columns represent dependent variables 
+% and the last 16 columns represent independent variables. 
 % Display relative contributions in percentages in descending order 
 % and save the output as an xls file. 
 % Also rank the top 5 independent variables for each of the top 
 % 5 dependent variables.
 % Load the data from the Excel spreadsheet
+clc; 
+clear; 
+close all;
+
 data = xlsread('Dataset6.xlsx'); 
 
 % Define X and Y
