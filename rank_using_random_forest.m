@@ -1,9 +1,6 @@
-clc; 
-clear; 
-close all;
-% Matlab code using random forest to rank variables from a dataset 
-% for which the first 23 columns represent independent variables 
-% and the last 13 columns represent dependent variables. 
+% MATLAB code using Random Forest to rank variables from a dataset 
+% for which the first 5 columns represent dependent variables 
+% and the last 16 columns represent independent variables. 
 % Display relative contributions in percentages in descending order 
 % and save the output as an xls file. 
 % Also rank the top 5 independent variables for each of the top 
